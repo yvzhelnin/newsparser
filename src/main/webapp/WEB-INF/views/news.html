@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<head>
+    <meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
+    <title>Новости</title>
+    <script src="/resources/lib/js/jquery-3.2.1.js"></script>
+    <script src="webjars/bootstrap/3.3.7-1/js/bootstrap.min.js"></script>
+</head>
+<body>
+<div class="container">
+    <div class="panel-heading newsparser-heading-panel">Фильтрация по заголовку</div>
+    <div class="panel panel-default newsparser-main-panel">
+        <div class="panel-body">
+            <div class="form-group-sm">
+                <div class="col-md-4">
+                    <input type="text" class="form-control" id="filterText">
+                </div>
+                <div class="col-md-4">
+                    <input type=button value="Фильтр" class="btn btn-md btn-primary" id="newsFilter">
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="nav" class="newsparser-button-panel">
+        <div class="btn-group pull-left">
+            <input type=button value="Обновить новости" class="btn btn-md btn-success" id="refreshNews">
+        </div>
+        <div id="spinner-container">
+            <img src="/resources/gif/ajax-loader.gif">
+        </div>
+        <div class="btn-group pull-right">
+            <input type=button value="Управление лентами новостей" class="btn btn-md btn-default"
+                   id="feedManagingButton">
+        </div>
+    </div>
+</div>
+<div class="container">
+    <div id="resultBar" class="alert"></div>
+</div>
+<div class="container">
+    <table id="newsTable" class="table table-striped" cellspacing="0" width="100%">
+        <thead>
+        <tr>
+            <th>Заголовок</th>
+            <th>Текст</th>
+        </tr>
+        </thead>
+        <tbody>
+        </tbody>
+    </table>
+</div>
+</body>
+
+<link rel="stylesheet" href="webjars/bootstrap/3.3.7-1/css/bootstrap.min.css">
+<link rel="stylesheet" href="/resources/common/normalize.css">
+<link rel="stylesheet" href="/resources/common/main.css">
+
+<script src="/resources/js/news.js"></script>
+
+</html>

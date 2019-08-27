@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<head>
+    <meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
+    <title>Список новостных лент</title>
+    <script src="/resources/lib/js/jquery-3.2.1.js"></script>
+    <script src="webjars/bootstrap/3.3.7-1/js/bootstrap.min.js"></script>
+</head>
+<body>
+<div class="container">
+    <div class="panel-heading newsparser-heading-panel">Добавление ленты</div>
+    <div class="panel panel-default newsparser-main-panel">
+        <div class="panel-body">
+            <div class="form-group-sm">
+                <div class="col-md-4">
+                    <label for="feedUrl">URL ленты</label>
+                    <input type="text" class="form-control" id="feedUrl" required>
+                </div>
+                <div class="col-md-4">
+                    <label for="rules">Строка правил</label>
+                    <input type="text" class="form-control" id="rules" required>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="newsparser-button-panel">
+        <div class="btn-group pull-left">
+            <input type=button value="Добавить" class="btn btn-md btn-primary" id="addButton">
+        </div>
+        <div class="btn-group pull-right newsparser-btn-group">
+            <input type=button value="Назад" class="btn btn-md btn-default" id="backButton">
+        </div>
+    </div>
+</div>
+<div class="container">
+    <div id="creationResult" class="alert"></div>
+</div>
+<div class="container">
+    <h1><span id="info-badge" class="badge">Нажмите для получения информации</span></h1>
+</div>
+<div class="container">
+    <div id="info" class="panel panel-default newsparser-info-panel">
+        <div class="panel-body">
+            <h6><p>В поле для ввода URL ленты необходимо ввести адрес
+                страницы, на которой агрегатор будет искать новости. Адрес обязательно начинается с протокола (http или
+                https).
+                Например: "http://e1.ru/news" (без кавычек). В поле "Строка правил" нужно ввести строку, определяющую
+                список
+                правил парсинга. Поскольку агрегатор
+                поддерживает парсинг HTML и RSS, для каждой из разметок определён свой формат правил. В качестве
+                разделителя
+                используется символ "|".</p>
+                <p>Правила для HTML: <b>HTML|<основной домен сайта (начинается с протокола)>|<префикс URL новости на странице с новостями>|<тег содержащий текст новости на странице с новостью>|<один из классов тега с текстом новости>
+                </b> </p>
+                <p>Правила для RSS: <b>Достаточно указать URL ленты и строке правил ввести RSS.</b></p>
+                <p>Затем нажать кнопку "Добавить".</p>
+                <p>Примеры:<br/>URL ленты: <b>http://e1.ru/news</b>, строка правил: <b>HTML|http://e1.ru|/news/spool/news_id-|td|news</b><br/>
+                    URL ленты: <b>https://lenta.ru</b>, правило парсинга:
+                    <b>HTML|http://lenta.ru|/news/|div|js-topic__text</b><br/>
+                    URL ленты: <b>https://lenta.ru/rss</b>, правило парсинга: <b>RSS</b></p>
+            </h6>
+        </div>
+    </div>
+</div>
+<div class="container">
+    <table id="newsFeedsTable" class="table table-striped table-bordered" cellspacing="0" width="100%">
+        <thead>
+        <tr>
+            <th>#</th>
+            <th>URL ленты</th>
+            <th>Тип ленты</th>
+            <th>Основной домен</th>
+            <th>Префикс</th>
+            <th>Тэг тела</th>
+            <th>Класс тела</th>
+            <th>Удаление</th>
+        </tr>
+        </thead>
+        <tbody>
+        </tbody>
+    </table>
+</div>
+</body>
+
+<link rel="stylesheet" href="webjars/bootstrap/3.3.7-1/css/bootstrap.min.css">
+<link rel="stylesheet" href="/resources/common/normalize.css">
+<link rel="stylesheet" href="/resources/common/main.css">
+
+<script src="/resources/js/create_feed.js"></script>
+
+</html>
